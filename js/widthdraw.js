@@ -20,6 +20,13 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawAmountString = widthdrawField.value;
     const newWithdrawAmount = parseFloat(newWithdrawAmountString);
     
+    // step-7
+    widthdrawField.value = '';
+
+    if(isNaN(newWithdrawAmount)){
+        return alert('ওই বেটা নাম্বার লেখার জায়গায় তুই অক্ষর লেখসস কেন?');
+    }
+    
     // step-3
     const widthdrawTotalElement = document.getElementById('withdraw-total');
     const newWithdrawTotalString = widthdrawTotalElement.innerText;
@@ -30,8 +37,6 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const previousBalanceTotalString = balanceTotalElement.innerText;
     const previousBalanceTotal = parseFloat(previousBalanceTotalString);
     
-    // step-7
-    widthdrawField.value = '';
     
     if(newWithdrawAmount > previousBalanceTotal){
         return alert('তোর বাপে ফকিন্নি এত টাকা চাইতাসোস কেন?')

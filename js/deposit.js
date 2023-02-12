@@ -4,6 +4,14 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     const depositField = document.getElementById('user-deposit');
     const newDepositAmountString = depositField.value;
     const newDepositAmount = parseFloat(newDepositAmountString);
+    
+    // step-7: clear the deposit input field
+    depositField.value = '';
+
+    if(isNaN(newDepositAmount)){
+        return alert('ওই বেটা নাম্বার লেখার জায়গায় তুই অক্ষর লেখসস কেন?');
+    }
+
     // step-3: get the current deposit total
     const depositTotalElement = document.getElementById('deposit-total');
     const previousDepositTotalString = depositTotalElement.innerText;
@@ -28,7 +36,5 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     // const balance = parseFloat(balanceString);
     // const balanceSum = balance + currentDepositTotal;
     // userBalance.innerText = balanceSum;
-    // step-7: clear the deposit input field
-    depositField.value = '';
 })
 
