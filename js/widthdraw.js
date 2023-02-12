@@ -25,18 +25,24 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawTotalString = widthdrawTotalElement.innerText;
     const previousWithdrawTotal = parseFloat(newWithdrawTotalString);
     
-    // step-4
-    const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-    widthdrawTotalElement.innerText = currentWithdrawTotal;
     // step-5
     const balanceTotalElement = document.getElementById('balance-total');
     const previousBalanceTotalString = balanceTotalElement.innerText;
     const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-
+    
+    // step-7
+    widthdrawField.value = '';
+    
+    if(newWithdrawAmount > previousBalanceTotal){
+        return alert('তোর বাপে ফকিন্নি এত টাকা চাইতাসোস কেন?')
+    }
+    
+    // step-4
+    const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+    widthdrawTotalElement.innerText = currentWithdrawTotal;
+    
     // step-6
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     balanceTotalElement.innerText = newBalanceTotal;
 
-    // step-7
-    widthdrawField.value = '';
 })
